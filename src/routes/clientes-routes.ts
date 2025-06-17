@@ -6,4 +6,5 @@ const clientesController = new ClientesController()
 
 export const clientesRoutes = Router()
 
-clientesRoutes.get('/', clientesController.index) // resgatar todos os clientes
+clientesRoutes.get('/', clientesController.getAll) // resgatar todos os clientes
+clientesRoutes.post('/', clientesController.created)

@@ -19,7 +19,7 @@ export class PrismaClientRpository implements IClienteRepository {
         })
     }
 
-    create(data: Omit<Cliente, 'id' | 'cretedAt' | 'updtatedAt'>): Promise<Cliente> {
+       create(data: Omit<Cliente, 'id' | 'createdAt' | 'updatedAt'>): Promise<Cliente> {
         return prisma.cliente.create({ data })
     }
 
@@ -39,5 +39,5 @@ export class PrismaClientRpository implements IClienteRepository {
         await prisma.cliente.delete({where: {id}})
     }
 
-
+    
 }

@@ -17,12 +17,13 @@ datasource db {
 model Cliente {
   id         String   @id @default(uuid())
   nome       String
+  cpf        String
   telefone   String
   endereco   String
   email      String   @unique
   password   String
   createdAt  DateTime @default(now()) @map("created_at")
-  updtatedAt DateTime @default(now()) @map("updated_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
 
   @@map("clientes")
 }
