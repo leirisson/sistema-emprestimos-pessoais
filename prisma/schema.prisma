@@ -15,14 +15,14 @@ datasource db {
 }
 
 model Cliente {
-  id       String @id @default(uuid())
-  nome     String
-  telefone String
-  endereco String
-  createdAt DateTime @map("created_at") @default(now())
-  updtatedAt DateTime @map("updated_at") @default(now())
+  id         String   @id @default(uuid())
+  nome       String
+  telefone   String
+  endereco   String
+  email      String   @unique
+  password   String
+  createdAt  DateTime @default(now()) @map("created_at")
+  updtatedAt DateTime @default(now()) @map("updated_at")
 
   @@map("clientes")
 }
-
-
