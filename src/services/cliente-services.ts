@@ -22,4 +22,15 @@ export class ClienteServies {
     }) {
         return this.repo.create(data)
     }
+
+    updated(id: string, data: {
+        nome: string,
+        cpf: string,
+        telefone: string,
+        endereco: string,
+        email: string,
+        password: string
+    }) {
+        return this.repo.update(id, data)
+    }
 }

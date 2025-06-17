@@ -20,16 +20,42 @@ export class ClientesController {
         }
     }
 
+    async getById(request: Request, response: Response) {
+        try {
+            const { id } = request.params
+            const cliente = await service.findById(id)
+
+            response.json(cliente)
+        } catch (error) {
+            response.json(error)
+        }
+    }
+
     async created(request: Request, response: Response) {
         try {
-            const {nome, cpf, telefone, endereco, email, password} = request.body
+            const { nome, cpf, telefone, endereco, email, password } = request.body
 
-            await service.create({nome, cpf, telefone, endereco, email, password})
+            await service.create({ nome, cpf, telefone, endereco, email, password })
 
             response.status(201).json()
         } catch (error) {
-            
+            response.json(error)
         }
     }
+
+
+    async updated(request: Request, response: Response) {
+        try {
+            const { id } = request.params
+            const { nome, cpf, telefone, endereco, email, password } = request.body
+
+            await service.updated(id, { nome, cpf, telefone, endereco, email, password })
+
+            response.status(201).json()
+        } catch (error) {
+            response.json(error)
+        }
+    }
+
 
 }
