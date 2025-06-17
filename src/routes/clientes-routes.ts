@@ -1,5 +1,9 @@
 import { Router } from "express";
 
-export const clientesRoutes =  Router()
+import { ClientesController } from '../controllers/clientes-controller'
 
-clientesRoutes.get('/') // resgatar todos os clientes
+const clientesController = new ClientesController()
+
+export const clientesRoutes = Router()
+
+clientesRoutes.get('/', clientesController.index) // resgatar todos os clientes
